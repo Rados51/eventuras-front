@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Container, Heading } from '@chakra-ui/react';
 import {
   OrganizationSettingDto,

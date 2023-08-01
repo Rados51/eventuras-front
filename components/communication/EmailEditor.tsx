@@ -27,7 +27,7 @@ const EmailEditor = (props: EmailEditorProps): JSX.Element => {
       <Stack spacing="24px" marginTop="16">
         <CheckboxGroup>
           {props.participantGroups &&
-            props.participantGroups.map((group) => (
+            props.participantGroups.map(group => (
               <Checkbox
                 name={group}
                 id={group}
@@ -46,7 +46,7 @@ const EmailEditor = (props: EmailEditorProps): JSX.Element => {
         </Heading>
         <Input
           placeholder="Email subject"
-          onChange={(e) => {
+          onChange={e => {
             props.setSubject(e.target.value);
           }}
         />

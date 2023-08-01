@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Button, Container, Heading } from '@chakra-ui/react';
 import { UsersService } from '@losol/eventuras';
 import {

@@ -44,6 +44,6 @@ module.exports = {
       },
     ],
     // Disabled because some of typescript files has any types for now. TODO: Put back after code will be re-written in typescript
-    "@typescript-eslint/no-explicit-any": "off"
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

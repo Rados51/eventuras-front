@@ -56,10 +56,10 @@ const DataTable = (props: any) => {
     <>
       <Table {...getTableProps()}>
         <Thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map(headerGroup => (
             /* eslint-disable react/jsx-key */
             <Tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
+              {headerGroup.headers.map(column => (
                 <Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
               ))}
             </Tr>
@@ -67,14 +67,14 @@ const DataTable = (props: any) => {
           ))}
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {rows.map(row => {
             prepareRow(row);
             return (
               /* eslint-disable react/jsx-key */
               <Tr {...row.getRowProps()}>
                 {
                   /* eslint-disable react/jsx-key */
-                  row.cells.map((cell) => {
+                  row.cells.map(cell => {
                     return (
                       <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                     );
