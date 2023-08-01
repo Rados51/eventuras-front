@@ -1,13 +1,6 @@
 import { Button, Container, Heading } from '@chakra-ui/react';
 import { UsersService } from '@losol/eventuras';
-import {
-  DataTable,
-  Layout,
-  Link,
-  Loading,
-  Unauthorized,
-  UserDrawer,
-} from 'components';
+import { DataTable, Layout, Link, Loading, Unauthorized, UserDrawer } from 'components';
 import { useSession } from 'next-auth/react';
 import { useEffect, useMemo, useState } from 'react';
 import { toaster } from 'services';
@@ -20,7 +13,6 @@ const AdminUsersIndex = () => {
   const [pages, setPages] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [userDrawerOpen, setUserDrawerOpen] = useState(false);
-  const count = 100;
   const columns = useMemo(
     () => [
       {
@@ -40,10 +32,7 @@ const AdminUsersIndex = () => {
         accessor: 'actions',
         Cell: function RenderCell({ row }) {
           return (
-            <Button
-              key={row.original.id}
-              onClick={() => openUserdetails(row.original.id)}
-            >
+            <Button key={row.original.id} onClick={() => openUserdetails(row.original.id)}>
               Detaljer
             </Button>
           );
@@ -75,9 +64,7 @@ const AdminUsersIndex = () => {
   };
 
   const handleSubmitNewUser = async user => {
-    const newUser = await UsersService.postV3Users(user).catch(error =>
-      toaster.error(error)
-    );
+    const newUser = await UsersService.postV3Users(user).catch(error => toaster.error(error));
 
     if (newUser) {
       toaster.success(`${newUser.name} is now a user.`);
@@ -87,9 +74,7 @@ const AdminUsersIndex = () => {
   };
 
   const handleSubmitUpdateUser = async user => {
-    const updatedUser = await UsersService.putV3Users(user.id, user).catch(
-      toaster.error
-    );
+    const updatedUser = await UsersService.putV3Users(user.id, user).catch(toaster.error);
 
     if (updatedUser) {
       toaster.success(`${updatedUser.name} was updated.`);
@@ -157,11 +142,7 @@ const AdminUsersIndex = () => {
             <Link href="/admin/">Admin</Link> &gt; Brukere
           </Heading>
 
-          <Button
-            colorScheme="teal"
-            variant="outline"
-            onClick={handleAddUserClick}
-          >
+          <Button colorScheme="teal" variant="outline" onClick={handleAddUserClick}>
             Add user
           </Button>
 

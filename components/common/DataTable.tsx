@@ -1,20 +1,7 @@
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@chakra-ui/icons';
-import {
-  Flex,
-  IconButton,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react';
+/* eslint-disable */
+
+import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { Flex, IconButton, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
 import { usePagination, useTable } from 'react-table';
 
 // type ColumnType = {
@@ -32,34 +19,27 @@ import { usePagination, useTable } from 'react-table';
 
 // const DataTable = (props: DataTableProps) => {
 const DataTable = (props: any) => {
-  const {
-    columns,
-    data,
-    handlePageClick = null,
-    totalPages = null,
-    page = null,
-  } = props;
+  const { columns, data, handlePageClick = null, totalPages = null, page = null } = props;
 
-  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } =
-    useTable(
-      {
-        columns,
-        data,
-        initialState: {
-          // pageIndex: 0, // TODO: Update react-table to v8. Use similar option ot another way
-        },
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } = useTable(
+    {
+      columns,
+      data,
+      initialState: {
+        // pageIndex: 0, // TODO: Update react-table to v8. Use similar option ot another way
       },
-      usePagination
-    );
+    },
+    usePagination
+  );
 
   return (
     <>
       <Table {...getTableProps()}>
         <Thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map(headerGroup => (
             /* eslint-disable react/jsx-key */
             <Tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
+              {headerGroup.headers.map(column => (
                 <Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
               ))}
             </Tr>
@@ -67,17 +47,15 @@ const DataTable = (props: any) => {
           ))}
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {rows.map(row => {
             prepareRow(row);
             return (
               /* eslint-disable react/jsx-key */
               <Tr {...row.getRowProps()}>
                 {
                   /* eslint-disable react/jsx-key */
-                  row.cells.map((cell) => {
-                    return (
-                      <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
-                    );
+                  row.cells.map(cell => {
+                    return <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>;
                   })
                 }
               </Tr>

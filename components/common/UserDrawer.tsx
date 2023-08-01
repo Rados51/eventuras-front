@@ -50,11 +50,7 @@ const UserDrawer = (props: UserDrawerProps): JSX.Element => {
               </FormControl>
               <FormControl id="phoneNumber">
                 <FormLabel>Phone number</FormLabel>
-                <Input
-                  type="tel"
-                  value={phoneNumber}
-                  onChange={handleUserChange}
-                />
+                <Input type="tel" value={phoneNumber} onChange={handleUserChange} />
               </FormControl>
             </VStack>
           </DrawerBody>

@@ -13,7 +13,7 @@ import useTranslation from 'next-translate/useTranslation';
 
 type UserMenuProps = {
   signOut: () => void;
-  name: string;
+  name: string | null | undefined;
 };
 
 const UserMenu = (props: UserMenuProps) => {
@@ -25,9 +25,11 @@ const UserMenu = (props: UserMenuProps) => {
       <Menu>
         <MenuButton as={Button} colorScheme="teal" size="lg" variant="outline">
           <Wrap>
-            <WrapItem>
-              <Avatar name={name} size="xs" />
-            </WrapItem>
+            {name && (
+              <WrapItem>
+                <Avatar name={name} size="xs" />
+              </WrapItem>
+            )}
             <WrapItem>{t('header.userMenu.title')}</WrapItem>
           </Wrap>
         </MenuButton>
